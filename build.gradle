@@ -1,0 +1,29 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+// Specify main class
+mainClassName = 'hello.HelloWorld'
+
+// Specify repositories
+repositories { 
+    mavenCentral() 
+}
+
+// Set compatibility
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+// Set dependency name and version
+dependencies {
+    implementation "joda-time:joda-time:2.2"
+    testImplementation "junit:junit:4.12"
+    // implementation dependency: required to compile, not added to jar
+    // testImplementaiton dependency: required to compiling and test, not added to jar
+    // compile dependency: should be available at compile time, added to jar
+}
+
+// Set jar name and version
+jar {
+    archiveBaseName = 'gradle-project'
+    archiveVersion =  '0.1.0'
+}
